@@ -17,14 +17,12 @@ export default async function AdminDashboard() {
 
   let bookCount = 0
   let leadCount = 0
-  let assetCount = 0
   let recentLeads: any[] = []
 
   try {
-    [bookCount, leadCount, assetCount] = await Promise.all([
+    [bookCount, leadCount] = await Promise.all([
       prisma.book.count(),
       prisma.lead.count(),
-      prisma.asset.count(),
     ])
 
     recentLeads = await prisma.lead.findMany({
@@ -54,7 +52,7 @@ export default async function AdminDashboard() {
 
       <div className="container-max py-8">
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <div className="bg-white p-6 rounded-lg shadow">
             <div className="flex items-center justify-between">
               <div>
@@ -82,21 +80,6 @@ export default async function AdminDashboard() {
             </div>
             <Link href="/admin/leads" className="mt-4 inline-block btn-primary text-sm">
               View Leads
-            </Link>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg shadow">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-gray-600 text-sm">Distribution Assets</p>
-                <p className="text-3xl font-bold text-slate-900">
-                  {assetCount}
-                </p>
-              </div>
-              <div className="text-4xl">🖼️</div>
-            </div>
-            <Link href="/admin/assets" className="mt-4 inline-block btn-primary text-sm">
-              Manage Assets
             </Link>
           </div>
         </div>
