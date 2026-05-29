@@ -92,6 +92,13 @@ export default function EditBookPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
+    
+    // Prevent blob URLs from being saved
+    if (formData.imageUrl && formData.imageUrl.startsWith('blob:')) {
+      setError('Please upload an image file or use a valid image URL. Blob URLs are not supported.')
+      return
+    }
+    
     setIsSaving(true)
 
     try {
