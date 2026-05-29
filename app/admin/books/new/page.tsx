@@ -5,11 +5,15 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { isAdminAuthenticated } from '@/lib/auth'
+import Image from 'next/image'
 
 export default function AddBookPage() {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
+  const [isUploading, setIsUploading] = useState(false)
   const [error, setError] = useState('')
+  const [useFileUpload, setUseFileUpload] = useState(false)
+  const [preview, setPreview] = useState<string | null>(null)
   const [formData, setFormData] = useState({
     title: '',
     author: '',
@@ -25,6 +29,52 @@ export default function AddBookPage() {
       ...prev,
       [name]: type === 'checkbox' ? checked : value,
     }))
+  }
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    // Create preview
+    const reader = new FileReader()
+    reader.onloadend = () => {
+      setPreview(reader.result as string)
+    }
+    reader.readAsDataURL(file)
+  }
+
+  const handleUploadImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    setIsUploading(true)
+    setError('')
+
+    try {
+      const formDataToSend = new FormData()
+      formDataToSend.append('files', file)
+
+      const response = await fetch('/api/upload', {
+        method: 'POST',
+        body: formDataToSend,
+      })
+
+      if (!response.ok) throw new Error('Upload failed')
+
+      const uploadedFiles = await response.json()
+      if (uploadedFiles.length > 0) {
+        const uploadedUrl = uploadedFiles[0].url
+        setFormData(prev => ({
+          ...prev,
+          imageUrl: uploadedUrl,
+        }))
+        setPreview(uploadedUrl)
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Upload failed')
+    } finally {
+      setIsUploading(false)
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -130,19 +180,77 @@ export default function AddBookPage() {
             </div>
 
             <div>
-              <label htmlFor="imageUrl" className="block text-sm font-medium text-gray-700 mb-2">
-                Image URL
+              <label className="block text-sm font-medium text-gray-700 mb-3">
+                Book Cover Image
               </label>
-              <input
-                type="url"
-                id="imageUrl"
-                name="imageUrl"
-                value={formData.imageUrl}
-                onChange={handleChange}
-                placeholder="https://example.com/image.jpg"
-                disabled={isLoading}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none"
-              />
+              
+              <div className="flex gap-4 mb-4">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setUseFileUpload(false)
+                    setPreview(null)
+                  }}
+                  className={`px-4 py-2 rounded-lg font-medium transition ${
+                    !useFileUpload
+                      ? 'bg-slate-900 text-white'
+                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  }`}
+                >
+                  Use URL
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setUseFileUpload(true)}
+                  className={`px-4 py-2 rounded-lg font-medium transition ${
+                    useFileUpload
+                      ? 'bg-slate-900 text-white'
+                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  }`}
+                >
+                  Upload Image
+                </button>
+              </div>
+
+              {useFileUpload ? (
+                <div className="space-y-3">
+                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                    <input
+                      type="file"
+                      id="imageUpload"
+                      onChange={handleUploadImage}
+                      accept="image/*"
+                      disabled={isUploading || isLoading}
+                      className="w-full cursor-pointer"
+                    />
+                    <p className="text-sm text-gray-500 mt-2">
+                      {isUploading ? 'Uploading...' : 'Click to select an image'}
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <input
+                  type="url"
+                  id="imageUrl"
+                  name="imageUrl"
+                  value={formData.imageUrl}
+                  onChange={handleChange}
+                  placeholder="https://example.com/image.jpg"
+                  disabled={isLoading}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none"
+                />
+              )}
+
+              {preview && (
+                <div className="mt-4">
+                  <p className="text-sm text-gray-600 mb-2">Preview:</p>
+                  <img
+                    src={preview}
+                    alt="Preview"
+                    className="max-h-48 rounded-lg border border-gray-300"
+                  />
+                </div>
+              )}
             </div>
 
             <div>

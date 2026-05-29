@@ -9,6 +9,7 @@ export default async function Portfolio() {
       where: { featured: true },
       take: 12,
     })
+    console.log('✓ Portfolio: Found featured books:', books.length, books.map(b => ({ id: b.id, title: b.title, featured: b.featured })))
   } catch (error) {
     console.error('Error fetching books:', error)
   }
