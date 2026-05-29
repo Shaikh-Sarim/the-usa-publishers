@@ -22,7 +22,6 @@ export default function EditBookPage() {
     description: '',
     imageUrl: '',
     category: '',
-    publishedLink: '',
     featured: false,
   })
 
@@ -306,21 +305,7 @@ export default function EditBookPage() {
               />
             </div>
 
-            <div>
-              <label htmlFor="publishedLink" className="block text-sm font-medium text-gray-700 mb-2">
-                Published Link (Amazon, Kobo, etc.)
-              </label>
-              <input
-                type="url"
-                id="publishedLink"
-                name="publishedLink"
-                value={formData.publishedLink}
-                onChange={handleChange}
-                placeholder="https://amazon.com/dp/..."
-                disabled={isSaving}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none"
-              />
-            </div>
+
 
             <div className="flex items-center p-4 bg-blue-50 border border-blue-200 rounded-lg">
               <input

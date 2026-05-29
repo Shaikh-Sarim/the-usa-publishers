@@ -32,12 +32,7 @@ export default async function Portfolio() {
               {books.map((book) => (
                 <div
                   key={book.id}
-                  className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition transform hover:scale-105 cursor-pointer"
-                  onClick={() => {
-                    if (book.publishedLink) {
-                      window.open(book.publishedLink, '_blank')
-                    }
-                  }}
+                  className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition transform hover:scale-105"
                 >
                   <div className="aspect-[3/4] relative bg-gray-200">
                     {book.imageUrl && (
@@ -54,9 +49,6 @@ export default async function Portfolio() {
                       <p className="text-sm font-semibold line-clamp-2">{book.title}</p>
                       {book.author && (
                         <p className="text-xs text-gray-300 mb-2">{book.author}</p>
-                      )}
-                      {book.publishedLink && (
-                        <p className="text-xs text-yellow-300 font-semibold">Click to explore →</p>
                       )}
                     </div>
                   </div>
