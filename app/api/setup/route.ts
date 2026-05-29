@@ -1,33 +1,51 @@
 import { prisma } from '@/lib/prisma'
+import { exec } from 'child_process'
+import { promisify } from 'util'
 import { NextResponse } from 'next/server'
 
-async function seedDatabase() {
+const execAsync = promisify(exec)
+
+export async function GET() {
   try {
-    console.log('Checking admin user...')
-    // Create admin user if doesn't exist
+    console.log('Starting database setup...')
+
+    // Try to run Prisma push to create tables
+    try {
+      console.log('Running prisma db push...')
+      await execAsync('npx prisma db push --skip-generate --skip-validate')
+      console.log('Prisma db push completed')
+    } catch (error) {
+      console.log('Prisma db push output:', error)
+    }
+
+    // Wait a moment for tables to be created
+    await new Promise(resolve => setTimeout(resolve, 1000))
+
+    // Now seed the database
+    console.log('Creating admin user...')
     const existingAdmin = await prisma.adminUser.findUnique({
       where: { email: 'admin@theusapublishers.com' },
     })
 
     if (!existingAdmin) {
-      const admin = await prisma.adminUser.create({
+      await prisma.adminUser.create({
         data: {
           email: 'admin@theusapublishers.com',
           password: 'admin123',
           name: 'Admin',
         },
       })
-      console.log('✓ Admin user created')
+      console.log('Admin user created')
     } else {
-      console.log('✓ Admin user already exists')
+      console.log('Admin user already exists')
     }
 
-    // Create sample assets if they don't exist
-    console.log('Checking assets...')
+    // Create sample assets
+    console.log('Creating assets...')
     const assetsCount = await prisma.asset.count()
     
     if (assetsCount === 0) {
-      const assets = await prisma.asset.createMany({
+      await prisma.asset.createMany({
         data: [
           {
             name: 'Amazon KDP',
@@ -71,47 +89,30 @@ async function seedDatabase() {
           },
         ],
       })
-      console.log(`✓ Created ${assets.count} sample assets`)
-    } else {
-      console.log(`✓ Assets already exist (${assetsCount})`)
+      console.log('Assets created')
     }
 
-    return { 
-      success: true, 
-      message: 'Database seeded successfully',
+    return NextResponse.json({
+      success: true,
+      message: 'Database setup completed successfully',
       credentials: {
         email: 'admin@theusapublishers.com',
         password: 'admin123'
       }
-    }
+    })
   } catch (error) {
-    console.error('Seed error:', error)
-    throw error
-  }
-}
-
-export async function GET() {
-  try {
-    const result = await seedDatabase()
-    return NextResponse.json(result)
-  } catch (error) {
-    console.error('GET error:', error)
+    console.error('Setup error:', error)
     return NextResponse.json(
-      { error: 'Failed to seed database', details: error instanceof Error ? error.message : 'Unknown error' },
+      { 
+        error: 'Setup failed', 
+        details: error instanceof Error ? error.message : 'Unknown error',
+        instructions: 'If you see "does not exist" error, the Vercel environment needs to be configured properly.'
+      },
       { status: 500 }
     )
   }
 }
 
 export async function POST() {
-  try {
-    const result = await seedDatabase()
-    return NextResponse.json(result)
-  } catch (error) {
-    console.error('POST error:', error)
-    return NextResponse.json(
-      { error: 'Failed to seed database', details: error instanceof Error ? error.message : 'Unknown error' },
-      { status: 500 }
-    )
-  }
+  return GET()
 }
