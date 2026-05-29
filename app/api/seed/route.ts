@@ -1,7 +1,7 @@
 import { prisma } from '@/lib/prisma'
 import { NextRequest, NextResponse } from 'next/server'
 
-export async function POST(request: NextRequest) {
+async function seedDatabase() {
   try {
     // Create admin user if doesn't exist
     const existingAdmin = await prisma.adminUser.findUnique({
@@ -72,21 +72,41 @@ export async function POST(request: NextRequest) {
       console.log(`Created ${assets.count} sample assets`)
     }
 
-    return NextResponse.json(
-      { 
-        success: true, 
-        message: 'Database seeded successfully',
-        credentials: {
-          email: 'admin@theusapublishers.com',
-          password: 'admin123'
-        }
-      },
-      { status: 200 }
-    )
+    return { 
+      success: true, 
+      message: 'Database seeded successfully',
+      credentials: {
+        email: 'admin@theusapublishers.com',
+        password: 'admin123'
+      }
+    }
+  } catch (error) {
+    console.error('Seed error:', error)
+    throw error
+  }
+}
+
+export async function GET() {
+  try {
+    const result = await seedDatabase()
+    return NextResponse.json(result)
   } catch (error) {
     console.error('Seed error:', error)
     return NextResponse.json(
-      { error: 'Failed to seed database', details: error },
+      { error: 'Failed to seed database', details: error instanceof Error ? error.message : 'Unknown error' },
+      { status: 500 }
+    )
+  }
+}
+
+export async function POST() {
+  try {
+    const result = await seedDatabase()
+    return NextResponse.json(result)
+  } catch (error) {
+    console.error('Seed error:', error)
+    return NextResponse.json(
+      { error: 'Failed to seed database', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     )
   }
