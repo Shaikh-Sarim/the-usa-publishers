@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
 
@@ -37,11 +36,10 @@ export default async function Portfolio() {
                 >
                   <div className="aspect-[3/4] relative bg-gray-200">
                     {book.imageUrl && (
-                      <Image
+                      <img
                         src={book.imageUrl}
                         alt={book.title}
-                        fill
-                        className="object-cover group-hover:scale-110 transition duration-300"
+                        className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
                       />
                     )}
                   </div>
