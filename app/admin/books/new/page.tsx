@@ -59,11 +59,14 @@ export default function AddBookPage() {
         body: formDataToSend,
       })
 
-      if (!response.ok) throw new Error('Upload failed')
+      const data = await response.json()
 
-      const uploadedFiles = await response.json()
-      if (uploadedFiles.length > 0) {
-        const uploadedUrl = uploadedFiles[0].url
+      if (!response.ok) {
+        throw new Error(data.error || 'Upload failed')
+      }
+
+      if (data.length > 0) {
+        const uploadedUrl = data[0].url
         setFormData(prev => ({
           ...prev,
           imageUrl: uploadedUrl,
@@ -71,7 +74,9 @@ export default function AddBookPage() {
         setPreview(uploadedUrl)
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Upload failed')
+      const errorMsg = err instanceof Error ? err.message : 'Upload failed'
+      setError(errorMsg)
+      console.error('Upload error:', errorMsg)
     } finally {
       setIsUploading(false)
     }

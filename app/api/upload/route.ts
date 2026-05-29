@@ -46,8 +46,15 @@ export async function POST(request: NextRequest) {
     const uploadedFiles = []
 
     for (const file of files) {
-      // Validate file
-      if (!file.type.startsWith('image/')) {
+      console.log(`Uploading file: ${file.name}, type: ${file.type}, size: ${file.size}`)
+      
+      // Validate file - check extension as fallback for MIME type
+      const ext = file.name.split('.').pop()?.toLowerCase() || ''
+      const validExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg']
+      const isValidImage = file.type.startsWith('image/') || validExtensions.includes(ext)
+      
+      if (!isValidImage) {
+        console.warn(`Skipping invalid file type: ${file.name} (${file.type})`)
         continue
       }
 
@@ -56,18 +63,25 @@ export async function POST(request: NextRequest) {
 
       // Generate filename
       const timestamp = Date.now()
-      const ext = file.name.split('.').pop() || 'jpg'
       const filename = `${timestamp}-${file.name.replace(/[^a-z0-9.-]/gi, '')}`
 
       // Save file
       const filepath = join(UPLOAD_DIR, filename)
       await writeFile(filepath, buffer)
+      console.log(`File saved: ${filepath}`)
 
       uploadedFiles.push({
         filename,
         url: `/uploads/${filename}`,
         uploadedAt: new Date().toISOString(),
       })
+    }
+
+    if (uploadedFiles.length === 0) {
+      return NextResponse.json(
+        { error: 'No valid image files found' },
+        { status: 400 }
+      )
     }
 
     // Return all files
@@ -85,7 +99,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Error uploading files:', error)
     return NextResponse.json(
-      { error: 'Upload failed' },
+      { error: `Upload failed: ${error instanceof Error ? error.message : 'Unknown error'}` },
       { status: 500 }
     )
   }
