@@ -100,9 +100,9 @@ export default async function AdminBooksPage() {
                       </span>
                     </td>
                     <td className="px-6 py-4 text-sm space-x-2">
-                      <button className="text-blue-600 hover:text-blue-700">
+                      <Link href={`/admin/books/${book.id}`} className="text-blue-600 hover:text-blue-700">
                         Edit
-                      </button>
+                      </Link>
                       <button className="text-red-600 hover:text-red-700">
                         Delete
                       </button>
