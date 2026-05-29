@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma'
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { title, author, description, imageUrl, category, featured } = body
+    const { title, author, description, imageUrl, category, publishedLink, featured } = body
 
     if (!title) {
       return NextResponse.json(
@@ -20,6 +20,7 @@ export async function POST(request: NextRequest) {
         description: description || null,
         imageUrl: imageUrl || '',
         category: category || null,
+        publishedLink: publishedLink || null,
         featured: featured || false,
       },
     })

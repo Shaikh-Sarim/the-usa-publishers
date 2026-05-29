@@ -17,6 +17,7 @@ model Book {
   description String?
   imageUrl  String   // URL to Vercel Blob / Cloud Storage file destination
   category  String?
+  publishedLink String?  // Link to where the book is published (Amazon, etc.)
   featured  Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
