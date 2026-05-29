@@ -14,11 +14,15 @@ export async function GET() {
       allBooks: allBooks.map(b => ({
         id: b.id,
         title: b.title,
+        author: b.author,
+        imageUrl: b.imageUrl,
         featured: b.featured
       })),
       featuredBooks: featuredBooks.map(b => ({
         id: b.id,
         title: b.title,
+        author: b.author,
+        imageUrl: b.imageUrl,
         featured: b.featured
       }))
     })
