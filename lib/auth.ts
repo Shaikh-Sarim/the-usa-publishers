@@ -8,11 +8,21 @@ const TOKEN_EXPIRY = 24 * 60 * 60 * 1000 // 24 hours
 
 export async function loginAdmin(email: string, password: string) {
   try {
+    console.log('Login attempt for email:', email)
+    
     const admin = await prisma.adminUser.findUnique({
       where: { email },
     })
 
-    if (!admin || admin.password !== password) {
+    console.log('Admin found:', !!admin)
+    
+    if (!admin) {
+      console.log('Admin user not found in database')
+      return { error: 'Invalid credentials' }
+    }
+
+    if (admin.password !== password) {
+      console.log('Password mismatch. Stored:', admin.password, 'Provided:', password)
       return { error: 'Invalid credentials' }
     }
 
@@ -27,10 +37,11 @@ export async function loginAdmin(email: string, password: string) {
       maxAge: TOKEN_EXPIRY / 1000,
     })
 
+    console.log('Login successful for:', email)
     return { success: true, admin: { id: admin.id, email: admin.email, name: admin.name } }
   } catch (error) {
     console.error('Login error:', error)
-    return { error: 'Login failed' }
+    return { error: 'Login failed: ' + (error instanceof Error ? error.message : 'Unknown error') }
   }
 }
 
