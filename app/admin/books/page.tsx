@@ -37,9 +37,9 @@ export default async function AdminBooksPage() {
             <Link href="/admin" className="text-blue-600 hover:text-blue-700">
               ← Dashboard
             </Link>
-            <button className="btn-primary text-sm">
+            <Link href="/admin/books/new" className="btn-primary text-sm">
               Add New Book
-            </button>
+            </Link>
           </div>
         </div>
       </header>
@@ -115,7 +115,9 @@ export default async function AdminBooksPage() {
         ) : (
           <div className="bg-white rounded-lg shadow p-8 text-center">
             <p className="text-gray-600 mb-4">No books added yet.</p>
-            <button className="btn-primary">Add First Book</button>
+            <Link href="/admin/books/new" className="btn-primary inline-block">
+              Add First Book
+            </Link>
           </div>
         )}
       </div>
