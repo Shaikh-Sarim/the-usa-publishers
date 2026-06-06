@@ -96,22 +96,23 @@ export default function BookCarousel({ books, autoPlayDelay = 8000 }: BookCarous
   }
 
   return (
-    <div className="relative w-full py-4">
+    <div className="relative w-full px-8 md:px-12 py-6">
       {/* Carousel container */}
-      <div className="overflow-hidden">
+      <div className="overflow-visible">
         <div
-          className="flex transition-transform duration-700 ease-out gap-4 md:gap-6"
+          className="flex transition-transform duration-700 ease-out justify-start"
           style={{
-            transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`,
+            transform: `translateX(calc(-${currentIndex * (100 / itemsPerView)}% - ${currentIndex * (16 + 24)}px))`,
+            gap: '16px',
           }}
         >
           {books.map((book) => (
             <div
               key={book.id}
               className="flex-shrink-0"
-              style={{ width: `${100 / itemsPerView}%` }}
+              style={{ width: `calc(${100 / itemsPerView}% - ${(itemsPerView - 1) * (16) / itemsPerView}px)` }}
             >
-              <div className="relative h-64 md:h-72 rounded-lg overflow-hidden">
+              <div className="relative rounded-lg overflow-hidden" style={{ aspectRatio: '3/4' }}>
                 {book.imageUrl ? (
                   <img
                     src={book.imageUrl}
@@ -130,7 +131,7 @@ export default function BookCarousel({ books, autoPlayDelay = 8000 }: BookCarous
       {/* Navigation buttons */}
       <button
         onClick={handlePrev}
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 z-10 p-2 rounded-full bg-[#0B3C6D] text-white shadow-lg hover:bg-[#062847]"
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-[#0B3C6D] text-white shadow-lg hover:bg-[#062847]"
         aria-label="Previous book"
       >
         <FiChevronLeft size={20} />
@@ -138,7 +139,7 @@ export default function BookCarousel({ books, autoPlayDelay = 8000 }: BookCarous
 
       <button
         onClick={handleNext}
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 z-10 p-2 rounded-full bg-[#0B3C6D] text-white shadow-lg hover:bg-[#062847]"
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-[#0B3C6D] text-white shadow-lg hover:bg-[#062847]"
         aria-label="Next book"
       >
         <FiChevronRight size={20} />
