@@ -1,6 +1,10 @@
+'use client'
+
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
 export default function CTA() {
+  const router = useRouter()
   return (
     <section className="bg-[#0B3C6D] py-16 md:py-28 border-t-4 border-[#C1121F]">
       <div className="container-max text-center">
@@ -18,7 +22,9 @@ export default function CTA() {
           <Link href="/contact" className="px-8 py-4 bg-[#C1121F] text-white font-bold rounded-lg hover:bg-[#A00D1A] transition shadow-lg text-lg">
             Let's Get Started
           </Link>
-          <button className="px-8 py-4 bg-white text-[#0B3C6D] font-bold rounded-lg hover:bg-[#D4A017] transition shadow-lg text-lg">
+          <button 
+            onClick={() => router.push('/contact')}
+            className="px-8 py-4 bg-white text-[#0B3C6D] font-bold rounded-lg hover:bg-[#D4A017] transition shadow-lg text-lg cursor-pointer">
             Live Chat
           </button>
         </div>

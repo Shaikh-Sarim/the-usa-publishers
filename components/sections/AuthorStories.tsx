@@ -1,3 +1,6 @@
+'use client'
+
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 
 const authorStories = [
@@ -31,6 +34,7 @@ const authorStories = [
 ]
 
 export default function AuthorStories() {
+  const router = useRouter()
   return (
     <section className="py-16 md:py-28 bg-gradient-to-b from-slate-50 to-white">
       <div className="container-max">
@@ -104,7 +108,11 @@ export default function AuthorStories() {
           <p className="text-gray-200 mb-8 max-w-2xl mx-auto">
             Join hundreds of successful authors who trusted The USA Publishers with their publishing journey.
           </p>
-          <button className="px-8 py-3 bg-[#D4A017] text-[#0B3C6D] font-semibold rounded-lg hover:bg-white transition-all shadow-lg hover:shadow-xl">
+          <button 
+            onClick={() => router.push('/contact')}
+          <button 
+            onClick={() => router.push('/contact')}
+            className="px-8 py-3 bg-[#D4A017] text-[#0B3C6D] font-semibold rounded-lg hover:bg-white transition-all shadow-lg hover:shadow-xl cursor-pointer">
             Start Your Project Today
           </button>
         </div>
