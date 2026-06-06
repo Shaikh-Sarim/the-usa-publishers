@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import LeadForm from '@/components/forms/LeadForm'
 import BookCarousel from '@/components/BookCarousel'
 
@@ -14,6 +15,7 @@ interface Book {
 }
 
 export default function Hero() {
+  const router = useRouter()
   const [books, setBooks] = useState<Book[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -74,10 +76,14 @@ export default function Hero() {
               Whether you're a first-time author or an experienced writer, our comprehensive services cover every aspect of book publishing from manuscript development to marketing strategy.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button className="px-6 py-3 bg-white text-[#0B3C6D] font-semibold rounded-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl">
+              <button 
+                onClick={() => router.push('/contact')}
+                className="px-6 py-3 bg-white text-[#0B3C6D] font-semibold rounded-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl cursor-pointer">
                 Get Started Today
               </button>
-              <button className="px-6 py-3 bg-[#D4A017] text-white font-semibold rounded-lg hover:bg-[#C4941A] transition-all shadow-lg hover:shadow-xl">
+              <button 
+                onClick={() => router.push('/services')}
+                className="px-6 py-3 bg-[#D4A017] text-white font-semibold rounded-lg hover:bg-[#C4941A] transition-all shadow-lg hover:shadow-xl cursor-pointer">
                 Learn More
               </button>
             </div>
