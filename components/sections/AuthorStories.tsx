@@ -110,8 +110,6 @@ export default function AuthorStories() {
           </p>
           <button 
             onClick={() => router.push('/contact')}
-          <button 
-            onClick={() => router.push('/contact')}
             className="px-8 py-3 bg-[#D4A017] text-[#0B3C6D] font-semibold rounded-lg hover:bg-white transition-all shadow-lg hover:shadow-xl cursor-pointer">
             Start Your Project Today
           </button>
