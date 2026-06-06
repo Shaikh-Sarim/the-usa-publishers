@@ -88,7 +88,6 @@ export default function BookCarousel({ books, autoPlayDelay = 8000 }: BookCarous
     return (
       <div className="flex items-center justify-center h-96 bg-gradient-to-br from-[#F8F9FC] to-[#E6EBF4] rounded-xl border-2 border-dashed border-[#0B3C6D]/20">
         <div className="text-center">
-          <div className="text-5xl mb-4">📚</div>
           <p className="text-[#536079] font-semibold">No books to display yet</p>
           <p className="text-[#536079] text-sm">Featured books will appear here</p>
         </div>
@@ -116,7 +115,7 @@ export default function BookCarousel({ books, autoPlayDelay = 8000 }: BookCarous
                 className="flex-shrink-0 px-2 md:px-3"
                 style={{ width: `${100 / itemsPerView}%` }}
               >
-                <div className="relative h-80 md:h-96 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 group/book">
+                <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 group/book">
                   {/* Book image */}
                   {book.imageUrl ? (
                     <img
@@ -140,17 +139,12 @@ export default function BookCarousel({ books, autoPlayDelay = 8000 }: BookCarous
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/book:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-white">
                     <h3 className="font-bold text-lg line-clamp-2 mb-1">{book.title}</h3>
                     {book.author && (
-                      <p className="text-sm text-gray-200 mb-2">by {book.author}</p>
-                    )}
-                    {book.description && (
-                      <p className="text-xs text-gray-300 line-clamp-2">{book.description}</p>
+                      <p className="text-xs text-gray-300">{book.author}</p>
                     )}
                   </div>
 
                   {/* Corner accent - USA flag colors */}
-                  <div className="absolute top-2 right-2 w-8 h-8 bg-[#C1121F] rounded-full shadow-lg flex items-center justify-center text-white text-lg">
-                    ⭐
-                  </div>
+                  <div className="absolute top-2 right-2 w-6 h-6 bg-[#C1121F] rounded-full shadow-lg"></div>
                 </div>
               </div>
             ))}

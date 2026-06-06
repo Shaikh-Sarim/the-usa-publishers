@@ -38,7 +38,7 @@ export default async function PortfolioPage() {
                   {books.length} published books
                 </p>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-12">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 mb-12">
                 {books.map((book: any) => (
                   <div
                     key={book.id}
@@ -71,7 +71,6 @@ export default async function PortfolioPage() {
             </>
           ) : (
             <div className="text-center py-16">
-              <div className="text-6xl mb-4">📚</div>
               <h2 className="text-3xl font-bold text-[#0B3C6D] mb-4">Coming Soon</h2>
               <p className="text-[#536079] mb-6 text-lg">
                 Check back soon to see our published books.
