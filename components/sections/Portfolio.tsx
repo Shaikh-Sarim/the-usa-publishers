@@ -1,5 +1,6 @@
 import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
+import BookCarousel from '@/components/BookCarousel'
 
 export default async function Portfolio() {
   let books: any[] = []
@@ -28,34 +29,8 @@ export default async function Portfolio() {
 
         {books.length > 0 ? (
           <>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6 mb-12">
-              {books.map((book) => (
-                <div
-                  key={book.id}
-                  className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition transform hover:scale-105"
-                >
-                  <div className="aspect-[3/4] relative bg-gray-200">
-                    {book.imageUrl && (
-                      <img
-                        src={book.imageUrl}
-                        alt={book.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
-                        style={{ maxHeight: '300px' }}
-                      />
-                    )}
-                  </div>
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition flex items-end">
-                    <div className="w-full p-4 text-white opacity-0 group-hover:opacity-100 transition">
-                      <p className="text-sm font-semibold line-clamp-2">{book.title}</p>
-                      {book.author && (
-                        <p className="text-xs text-gray-300 mb-2">{book.author}</p>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="text-center">
+            <BookCarousel books={books} autoPlayDelay={8000} />
+            <div className="text-center mt-12">
               <Link href="/portfolio" className="inline-block px-8 py-3 bg-[#0B3C6D] text-white font-bold rounded-lg hover:bg-[#062847] transition">
                 See All Work
               </Link>

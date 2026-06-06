@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import LeadForm from '@/components/forms/LeadForm'
 import Link from 'next/link'
 
@@ -51,7 +52,21 @@ export default function ServiceDetailPage() {
       {/* Overview */}
       <section className="py-16 md:py-24">
         <div className="container-max">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+            {/* Service Image */}
+            <div className="md:col-span-1">
+              <div className="w-full rounded-lg overflow-hidden bg-gray-50 flex items-center justify-center h-80 shadow-lg">
+                <Image
+                  src="/images/services/editing.png"
+                  alt="Professional Ghostwriting Services"
+                  width={300}
+                  height={300}
+                  className="w-full h-full object-contain p-4"
+                />
+              </div>
+            </div>
+
+            {/* Content */}
             <div>
               <h2 className="text-3xl font-bold text-slate-900 mb-6">
                 About This Service

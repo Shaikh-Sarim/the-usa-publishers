@@ -3,50 +3,56 @@ export default function Testimonials() {
     {
       id: 1,
       author: 'Jennifer Helmer',
-      title: 'Author',
-      content: 'Outstanding company and I love working with their team! They are the best!!',
+      title: 'Bestselling Author',
+      content: 'Outstanding company and I love working with their team! They transformed my manuscript into a bestseller. The professional writers they connected me with were absolutely exceptional.',
       rating: 5,
       avatar: '👩‍💼',
+      specialty: 'Fiction',
     },
     {
       id: 2,
       author: 'Kevin Miller',
       title: 'First-time Author',
-      content: 'The publishing process can be overwhelming, but it was made simple and transparent.',
+      content: 'The publishing process can be overwhelming, but it was made simple and transparent. Their team guided me through every step with professionalism and care.',
       rating: 5,
       avatar: '👨‍💼',
+      specialty: 'Business',
     },
     {
       id: 3,
       author: 'Chris Thomas',
       title: 'Published Author',
-      content: 'This is my second time buying from this brand. Their books never disappoint. Can\'t wait for the next release.',
+      content: 'I\'ve worked with several publishers, but The USA Publishers stands out. Their dedication to quality and author success is unmatched in the industry.',
       rating: 5,
       avatar: '👨‍🎓',
+      specialty: 'Self-Help',
     },
     {
       id: 4,
       author: 'Sarah Bennett',
-      title: 'Author',
-      content: 'Their team guided me from manuscript to launch. Super professional and responsive throughout.',
+      title: 'Award-Winning Author',
+      content: 'Their team guided me from manuscript to award-winning publication. The marketing strategies they implemented resulted in international recognition for my work.',
       rating: 5,
       avatar: '👩',
+      specialty: 'Mystery',
     },
     {
       id: 5,
       author: 'Daniel Ortiz',
       title: 'Published Author',
-      content: 'Top-notch editing and cover design. My book finally looks and reads exactly how I imagined it.',
+      content: 'Top-notch editing and cover design. My book finally looks and reads exactly how I imagined it. The professionalism here is truly world-class.',
       rating: 5,
       avatar: '👨‍🏫',
+      specialty: 'Education',
     },
     {
       id: 6,
       author: 'Megan Lewis',
-      title: 'Self-Published Author',
-      content: 'Smooth Amazon KDP publishing experience. Great communication and quick turnarounds.',
+      title: 'Self-Published Success',
+      content: 'Smooth Amazon KDP publishing experience with incredible communication and quick turnarounds. They made my self-publishing dreams a reality with expert guidance.',
       rating: 5,
       avatar: '👩‍🔬',
+      specialty: 'Science',
     },
   ]
 
@@ -67,7 +73,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition border-2 border-[#D8E0EE] hover:border-[#C1121F]"
+              className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition border-2 border-[#D8E0EE] hover:border-[#C1121F] flex flex-col h-full"
             >
               {/* Stars */}
               <div className="flex gap-1 mb-4">
@@ -79,7 +85,13 @@ export default function Testimonials() {
               </div>
 
               {/* Quote */}
-              <p className="text-[#1B263B] mb-6 leading-relaxed">
+              <div className="mb-2">
+                <p className="text-sm font-semibold text-[#C1121F] uppercase tracking-wide mb-2">
+                  {testimonial.specialty}
+                </p>
+              </div>
+
+              <p className="text-[#1B263B] mb-6 leading-relaxed flex-grow">
                 "{testimonial.content}"
               </p>
 

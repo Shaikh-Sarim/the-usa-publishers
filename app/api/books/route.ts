@@ -34,10 +34,18 @@ export async function POST(request: NextRequest) {
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
+    const { searchParams } = new URL(request.url)
+    const featured = searchParams.get('featured') === 'true'
+    const limit = parseInt(searchParams.get('limit') || '12')
+
+    const where = featured ? { featured: true } : {}
+
     const books = await prisma.book.findMany({
+      where,
       orderBy: { createdAt: 'desc' },
+      take: limit,
     })
     return NextResponse.json(books)
   } catch (error) {

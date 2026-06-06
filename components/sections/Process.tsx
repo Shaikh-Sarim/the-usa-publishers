@@ -4,24 +4,32 @@ const steps = [
     title: 'Manuscript Review & Editing',
     description: 'Our team carefully reviews your content to ensure it is clear and publication-ready. We enhance structure and prepare your manuscript for high-quality book publishing services while preserving your unique voice.',
     cta: 'Discuss with us to AVAIL 50% Discount',
+    icon: '📝',
+    quote: 'Your manuscript is precious. We treat it with the expertise it deserves.',
   },
   {
     id: 2,
     title: 'Professional KDP Book Formatting Services',
     description: 'We handle all technical aspects of book formatting and publishing, including layout design, typography and ISBN setup. Our professional KDP book formatting services ensure your book is optimized for seamless Amazon KDP publishing.',
     cta: 'Discuss with us to AVAIL 50% Discount',
+    icon: '✨',
+    quote: 'Beautiful formatting is the foundation of every successful book.',
   },
   {
     id: 3,
     title: 'Distribution & Marketing',
     description: 'With our Amazon book publishing services and global distribution network, your book becomes available on major platforms like Amazon and Barnes & Noble. We also implement targeted book marketing strategies to increase visibility.',
     cta: 'Discuss with us to AVAIL 50% Discount',
+    icon: '🚀',
+    quote: 'Your book reaches readers across the world with our expert marketing strategies.',
   },
   {
     id: 4,
     title: 'Ongoing Support',
     description: 'Publishing doesn\'t end at launch. As one of the most reliable book publishing companies USA, we provide continued support including performance tracking, updates and strategic guidance to help you grow as an author.',
     cta: 'Discuss with us to AVAIL 50% Discount',
+    icon: '🌟',
+    quote: 'Your success as an author is our continued mission and commitment.',
   },
 ]
 
@@ -43,20 +51,36 @@ export default function Process() {
           {steps.map((step) => (
             <div
               key={step.id}
-              className="relative p-8 bg-white border-2 border-[#D8E0EE] rounded-xl hover:border-[#C1121F] transition group"
+              className="relative p-8 bg-white border-2 border-[#D8E0EE] rounded-xl hover:border-[#C1121F] transition group overflow-visible"
             >
               {/* Number Badge */}
-              <div className="absolute -top-4 -left-4 w-10 h-10 bg-[#C1121F] text-white rounded-full flex items-center justify-center font-bold text-lg group-hover:scale-110 transition">
+              <div className="absolute top-6 left-6 w-12 h-12 bg-[#C1121F] text-white rounded-full flex items-center justify-center font-bold text-xl group-hover:scale-110 transition z-20">
                 {String(step.id).padStart(2, '0')}
               </div>
 
-              <h3 className="text-2xl font-bold text-[#0B3C6D] mb-4 mt-2">
+              {/* Icon Background */}
+              <div className="absolute -top-8 -right-8 w-32 h-32 bg-[#D4A017]/10 rounded-full group-hover:scale-110 transition duration-500"></div>
+
+              {/* Icon */}
+              <div className="text-4xl mb-4 relative z-10 mt-6">
+                {step.icon}
+              </div>
+
+              <h3 className="text-2xl font-bold text-[#0B3C6D] mb-4 relative z-10">
                 {step.title}
               </h3>
-              <p className="text-[#536079] mb-6 leading-relaxed">
+              <p className="text-[#536079] mb-6 leading-relaxed relative z-10">
                 {step.description}
               </p>
-              <p className="text-sm font-semibold text-[#C1121F] uppercase tracking-wide">
+
+              {/* Quote */}
+              <div className="bg-gradient-to-r from-[#0B3C6D]/5 to-[#C1121F]/5 border-l-4 border-[#D4A017] p-3 mb-6 rounded relative z-10">
+                <p className="text-sm text-[#0B3C6D] italic font-medium">
+                  "{step.quote}"
+                </p>
+              </div>
+
+              <p className="text-sm font-semibold text-[#C1121F] uppercase tracking-wide relative z-10">
                 {step.cta}
               </p>
             </div>
