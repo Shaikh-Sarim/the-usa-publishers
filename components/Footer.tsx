@@ -11,8 +11,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <Link href="/" className="inline-block mb-4">
-              <Image src="/images/logo.png" alt="The USA Publishing" width={50} height={50} className="h-12 w-auto" />
+            <Link href="/" className="inline-block mb-6">
+              <div className="relative">
+                <Image 
+                  src="/images/logo.jpeg" 
+                  alt="The USA Publishing" 
+                  width={160} 
+                  height={160} 
+                  className="h-40 w-auto rounded-lg shadow-lg hover:shadow-xl transition" 
+                />
+              </div>
             </Link>
             <p className="text-gray-300 text-sm mb-4">
               Professional book publishing and writing services to transform your ideas into published works.

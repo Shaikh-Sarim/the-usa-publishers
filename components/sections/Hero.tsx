@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import LeadForm from '@/components/forms/LeadForm'
 import BookCarousel from '@/components/BookCarousel'
@@ -56,6 +57,17 @@ export default function Hero() {
       {/* Content */}
       <div className="container-max relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center min-h-[600px] md:min-h-[700px]">
+          {/* Logo at Top */}
+          <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
+            <Image 
+              src="/images/logo.png" 
+              alt="The USA Publishing" 
+              width={120} 
+              height={120} 
+              className="h-32 w-auto drop-shadow-lg" 
+            />
+          </div>
+
           {/* Left Column */}
           <div className="text-white">
             <div className="mb-4 flex items-center gap-2">

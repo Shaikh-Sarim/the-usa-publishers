@@ -16,7 +16,7 @@ interface BookCarouselProps {
   autoPlayDelay?: number
 }
 
-export default function BookCarousel({ books, autoPlayDelay = 8000 }: BookCarouselProps) {
+export default function BookCarousel({ books, autoPlayDelay = 6000 }: BookCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [autoplay, setAutoplay] = useState(true)
   const [lastInteraction, setLastInteraction] = useState(Date.now())

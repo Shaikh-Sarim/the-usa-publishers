@@ -29,7 +29,7 @@ export default async function Portfolio() {
 
         {books.length > 0 ? (
           <>
-            <BookCarousel books={books} autoPlayDelay={8000} />
+            <BookCarousel books={books} autoPlayDelay={6000} />
             <div className="text-center mt-12">
               <Link href="/portfolio" className="inline-block px-8 py-3 bg-[#0B3C6D] text-white font-bold rounded-lg hover:bg-[#062847] transition">
                 See All Work

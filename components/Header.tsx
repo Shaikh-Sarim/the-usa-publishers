@@ -10,10 +10,14 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-[#0B3C6D] border-b-2 border-[#C1121F] shadow-usa-md">
-      <nav className="container-max flex items-center justify-between h-16">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <Image src="/images/logo.png" alt="The USA Publishing" width={40} height={40} className="h-10 w-auto" />
+      <nav className="container-max flex items-center justify-between h-20">
+        {/* Logo + Text */}
+        <Link href="/" className="flex items-center gap-3">
+          <div className="text-2xl font-bold flex items-center gap-1">
+            <span className="bg-[#0B3C6D] text-white px-3 py-1 rounded font-black">The</span>
+            <span className="text-white font-black tracking-wide">USA</span>
+            <span className="text-[#C1121F] font-black tracking-wide">Publishing</span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
