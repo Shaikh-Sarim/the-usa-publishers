@@ -12,6 +12,7 @@ export default async function PortfolioPage() {
     books = await prisma.book.findMany({
       orderBy: { createdAt: 'desc' },
     })
+    console.log('✓ Portfolio Page: Found books:', books.length, books.map(b => ({ id: b.id, title: b.title })))
   } catch (error) {
     console.error('Error fetching books:', error)
   }
