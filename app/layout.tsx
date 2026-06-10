@@ -17,9 +17,13 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: 'The USA Publishers - Professional Book Publishing Services',
+  title: 'The USA Publishing - Professional Book Publishing Services',
   description: 'Transform your manuscript into a published book with professional writing, editing, design, and marketing services.',
   keywords: 'book publishing, ghostwriting, editing, book design, self-publishing',
+  icons: {
+    icon: '/images/logo.png',
+    apple: '/images/logo.png',
+  },
 }
 
 export default function RootLayout({

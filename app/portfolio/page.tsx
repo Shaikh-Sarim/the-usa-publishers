@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { prisma } from '@/lib/prisma'
 
 export const metadata = {
-  title: 'Portfolio - The USA Publishers',
+  title: 'Portfolio - The USA Publishing',
   description: 'Browse our collection of published books across various genres and categories.',
 }
 
@@ -91,7 +91,7 @@ export default async function PortfolioPage() {
             Want Your Book to Be Featured?
           </h2>
           <p className="text-lg text-[#536079] mb-10 max-w-2xl mx-auto">
-            Join our growing list of bestselling authors. Start your publishing journey with The USA Publishers today.
+            Join our growing list of bestselling authors. Start your publishing journey with The USA Publishing today.
           </p>
           <a href="/contact" className="inline-block px-8 py-3 bg-[#0B3C6D] text-white font-bold rounded-lg hover:bg-[#062847] transition">
             Get Started Now

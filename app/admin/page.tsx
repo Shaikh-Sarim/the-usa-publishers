@@ -5,7 +5,7 @@ import { isAdminAuthenticated } from '@/lib/auth'
 import LogoutButton from '@/components/admin/LogoutButton'
 
 export const metadata = {
-  title: 'Admin Dashboard - The USA Publishers',
+  title: 'Admin Dashboard - The USA Publishing',
 }
 
 export default async function AdminDashboard() {

@@ -40,7 +40,7 @@ export default function AdminLogin() {
           <h1 className="text-3xl font-bold text-slate-900 mb-2">
             Admin Login
           </h1>
-          <p className="text-gray-600">The USA Publishers</p>
+          <p className="text-gray-600">The USA Publishing</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">

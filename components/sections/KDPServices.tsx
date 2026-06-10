@@ -15,7 +15,7 @@ export default function KDPServices() {
             </h2>
 
             <p className="text-[#536079] mb-8 leading-relaxed">
-              The USA Publishers doesn't just offer services but becomes your dedicated publishing partner. From your first idea to final release, our team provides complete professional book publishing services designed to help you publish a best-selling book with confidence.
+              The USA Publishing doesn't just offer services but becomes your dedicated publishing partner. From your first idea to final release, our team provides complete professional book publishing services designed to help you publish a best-selling book with confidence.
             </p>
 
             <div className="mb-8 p-4 bg-white rounded-lg border-2 border-blue-300">

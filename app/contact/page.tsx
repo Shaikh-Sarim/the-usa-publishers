@@ -2,7 +2,7 @@ import LeadForm from '@/components/forms/LeadForm'
 import { FiPhone, FiMail, FiMapPin } from 'react-icons/fi'
 
 export const metadata = {
-  title: 'Contact Us - The USA Publishers',
+  title: 'Contact Us - The USA Publishing',
   description: 'Get in touch with our publishing team for questions, quotes, or to discuss your book project.',
 }
 

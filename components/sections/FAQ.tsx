@@ -12,7 +12,7 @@ const faqs = [
   {
     id: 2,
     question: 'Are you a book publishing company in the USA?',
-    answer: 'Yes, The USA Publishers is a recognized and trusted book publishing company based in the USA. We serve authors worldwide with our comprehensive publishing services.',
+    answer: 'Yes, The USA Publishing is a recognized and trusted book publishing company based in the USA. We serve authors worldwide with our comprehensive publishing services.',
   },
   {
     id: 3,

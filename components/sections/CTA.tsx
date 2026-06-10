@@ -12,7 +12,7 @@ export default function CTA() {
           Hire Expert for Amazon KDP Setup Today
         </h2>
         <p className="text-xl text-white mb-3 max-w-3xl mx-auto leading-relaxed">
-          The USA Publishers doesn't just offer services but becomes your dedicated publishing partner. From your first idea to final release, our team provides complete professional book publishing services designed to help you publish a best-selling book with confidence.
+          The USA Publishing doesn't just offer services but becomes your dedicated publishing partner. From your first idea to final release, our team provides complete professional book publishing services designed to help you publish a best-selling book with confidence.
         </p>
         <p className="text-[#D4A017] text-lg mb-10 font-bold uppercase tracking-widest">
           UNLIMITED REVISION | GET ACCEPTED TO AMAZON FAST

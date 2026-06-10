@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi'
 
 export default function Footer() {
@@ -10,11 +11,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-              <span className="bg-[#C1121F] text-white px-2 py-1 rounded text-sm">The</span>
-              <span className="text-white">Usa</span>
-              <span className="text-[#C1121F]">Publishers</span>
-            </h3>
+            <Link href="/" className="inline-block mb-4">
+              <Image src="/images/logo.png" alt="The USA Publishing" width={50} height={50} className="h-12 w-auto" />
+            </Link>
             <p className="text-gray-300 text-sm mb-4">
               Professional book publishing and writing services to transform your ideas into published works.
             </p>
@@ -104,7 +103,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-          <p>&copy; {currentYear} The USA Publishers. All rights reserved.</p>
+          <p>&copy; {currentYear} The USA Publishing. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <Link href="/privacy" className="hover:text-[#D4A017] transition">
               Privacy Policy

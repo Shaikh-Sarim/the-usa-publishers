@@ -18,7 +18,7 @@ export async function sendConfirmationEmail(
   const mailOptions = {
     from: process.env.ADMIN_EMAIL,
     to: userEmail,
-    subject: 'We Received Your Request - The USA Publishers',
+    subject: 'We Received Your Request - The USA Publishing',
     html: `
       <!DOCTYPE html>
       <html>
@@ -40,7 +40,7 @@ export async function sendConfirmationEmail(
             </div>
             <div class="content">
               <p>We've received your request for <span class="highlight">${service}</span>.</p>
-              <p>Our team at The USA Publishers will review your information and contact you within <strong>24-48 hours</strong> to discuss your project in detail.</p>
+              <p>Our team at The USA Publishing will review your information and contact you within <strong>24-48 hours</strong> to discuss your project in detail.</p>
               <p><strong>What happens next:</strong></p>
               <ul>
                 <li>Our specialist will call or email you</li>
@@ -54,7 +54,7 @@ export async function sendConfirmationEmail(
               </p>
             </div>
             <div class="footer">
-              <p>&copy; ${new Date().getFullYear()} The USA Publishers. All rights reserved.</p>
+              <p>&copy; ${new Date().getFullYear()} The USA Publishing. All rights reserved.</p>
               <p>${process.env.NEXT_PUBLIC_APP_NAME}</p>
             </div>
           </div>
@@ -139,7 +139,7 @@ export async function sendAdminNotification(
               </p>
             </div>
             <div class="footer">
-              <p>&copy; ${new Date().getFullYear()} The USA Publishers. All rights reserved.</p>
+              <p>&copy; ${new Date().getFullYear()} The USA Publishing. All rights reserved.</p>
             </div>
           </div>
         </body>

@@ -6,10 +6,10 @@ export default async function Portfolio() {
   let books: any[] = []
   try {
     books = await prisma.book.findMany({
-      where: { featured: true },
+      orderBy: { createdAt: 'desc' },
       take: 12,
     })
-    console.log('✓ Portfolio: Found featured books:', books.length, books.map(b => ({ id: b.id, title: b.title, featured: b.featured })))
+    console.log('✓ Portfolio: Found books:', books.length, books.map(b => ({ id: b.id, title: b.title })))
   } catch (error) {
     console.error('Error fetching books:', error)
   }

@@ -4,9 +4,9 @@ export default function About() {
       {/* Hero */}
       <section className="bg-[#0B3C6D] text-white py-16 md:py-24">
         <div className="container-max">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">About The USA Publishers</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">About The USA Publishing</h1>
           <p className="text-xl max-w-3xl text-[#D4A017]">
-            Recognized as a trusted book publishing company USA, The USA Publishers combines creativity with strategy to deliver books that are not only professionally written but also positioned for success.
+            Recognized as a trusted book publishing company USA, The USA Publishing combines creativity with strategy to deliver books that are not only professionally written but also positioned for success.
           </p>
         </div>
       </section>
@@ -38,7 +38,7 @@ export default function About() {
       <section className="py-16 md:py-24 bg-[#F8F9FC]">
         <div className="container-max">
           <h2 className="text-3xl md:text-5xl font-bold text-[#0B3C6D] mb-16 text-center">
-            Why Choose The USA Publishers
+            Why Choose The USA Publishing
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">

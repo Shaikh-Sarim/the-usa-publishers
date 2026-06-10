@@ -8,7 +8,7 @@ const authorStories = [
     id: 1,
     name: 'Sarah Mitchell',
     title: 'Bestselling Author',
-    quote: 'I needed professional writers for hire, and The USA Publishers exceeded all my expectations. Their ghostwriting team transformed my ideas into a masterpiece.',
+    quote: 'I needed professional writers for hire, and The USA Publishing exceeded all my expectations. Their ghostwriting team transformed my ideas into a masterpiece.',
     image: '/images/author1.jpg',
     achievement: '50K+ Copies Sold',
     bgPosition: 'left',
@@ -106,7 +106,7 @@ export default function AuthorStories() {
             Ready to Write Your Success Story?
           </h3>
           <p className="text-gray-200 mb-8 max-w-2xl mx-auto">
-            Join hundreds of successful authors who trusted The USA Publishers with their publishing journey.
+            Join hundreds of successful authors who trusted The USA Publishing with their publishing journey.
           </p>
           <button 
             onClick={() => router.push('/contact')}

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { FiMenu, FiX } from 'react-icons/fi'
 
@@ -12,11 +13,7 @@ export default function Header() {
       <nav className="container-max flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <div className="text-2xl font-bold flex items-center gap-1">
-            <span className="bg-[#C1121F] text-white px-2 py-1 rounded">The</span>
-            <span className="text-white">Usa</span>
-            <span className="text-[#C1121F]">Publishers</span>
-          </div>
+          <Image src="/images/logo.png" alt="The USA Publishing" width={40} height={40} className="h-10 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}
