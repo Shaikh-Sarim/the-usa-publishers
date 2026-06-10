@@ -106,8 +106,6 @@ export default function BookShowcase() {
           </p>
           <button 
             onClick={() => router.push('/portfolio')}
-          <button 
-            onClick={() => router.push('/portfolio')}
             className="px-8 py-3 bg-[#0B3C6D] text-white font-bold rounded-lg hover:bg-[#062847] transition shadow-lg hover:shadow-xl cursor-pointer">
             See Our Full Portfolio
           </button>
