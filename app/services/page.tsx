@@ -148,20 +148,16 @@ export default function ServicesPage() {
               { title: 'Audiobook Services', image: '/images/services/audiobooks.jpg' },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-lg border-2 border-[#D8E0EE] hover:border-[#C1121F] transition text-center">
-                {service.image ? (
-                  <div className="mb-3 overflow-hidden rounded h-48">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      width={300}
-                      height={200}
-                      className="w-full h-full object-cover"
-                      unoptimized
-                    />
-                  </div>
-                ) : (
-                  <div className="text-5xl mb-3">{service.emoji}</div>
-                )}
+                <div className="mb-3 overflow-hidden rounded h-48">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    width={300}
+                    height={200}
+                    className="w-full h-full object-cover"
+                    unoptimized
+                  />
+                </div>
                 <p className="font-bold text-[#0B3C6D]">{service.title}</p>
               </div>
             ))}
