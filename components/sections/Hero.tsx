@@ -56,18 +56,18 @@ export default function Hero() {
 
       {/* Content */}
       <div className="container-max relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center min-h-[600px] md:min-h-[700px]">
-          {/* Logo at Top Left */}
-          <div className="absolute top-8 left-8 z-20">
-            <Image 
-              src="/images/logo.png" 
-              alt="The USA Publishing" 
-              width={150} 
-              height={150} 
-              className="h-40 w-auto drop-shadow-lg" 
-            />
-          </div>
-
+        {/* Logo at Top - Above Content */}
+        <div className="flex justify-start mb-8 pt-8">
+          <Image 
+            src="/images/logo.png" 
+            alt="The USA Publishing" 
+            width={150} 
+            height={150} 
+            className="h-40 w-auto drop-shadow-lg" 
+          />
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center min-h-[500px] md:min-h-[600px]">
           {/* Left Column */}
           <div className="text-white">
             <div className="mb-4 flex items-center gap-2">

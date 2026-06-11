@@ -62,6 +62,7 @@ export default function ServiceDetailPage() {
                   width={300}
                   height={300}
                   className="w-full h-full object-cover"
+                  unoptimized
                 />
               </div>
             </div>

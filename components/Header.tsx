@@ -14,7 +14,7 @@ export default function Header() {
         {/* Logo + Text */}
         <Link href="/" className="flex items-center gap-3">
           <div className="text-2xl font-bold flex items-center gap-1">
-            <span className="bg-[#0B3C6D] text-white px-3 py-1 rounded font-black">The</span>
+            <span className="bg-[#C1121F] text-white px-3 py-1 rounded font-black">The</span>
             <span className="text-white font-black tracking-wide">USA</span>
             <span className="text-[#C1121F] font-black tracking-wide">Publishing</span>
           </div>
