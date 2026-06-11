@@ -4,28 +4,28 @@ import Link from 'next/link'
 const services = [
   {
     id: 1,
-    image: '/images/services/editing.png',
+    image: '/images/services/ghost writing.jpg',
     title: 'Ghostwriting Services',
     description: 'Turn your ideas into a manuscript with our professional book writing services. Hire a book writer online or collaborate with experienced storytellers to turn your dreams into reality.',
     slug: 'ghostwriting',
   },
   {
     id: 2,
-    image: '/images/services/editing.png',
+    image: '/images/services/book cover design.jpg',
     title: 'eBook Editing & Publishing',
     description: 'Prepare your manuscript for success with expert editing. We ensure your book meets industry standards for both print and Amazon KDP publishing.',
     slug: 'editing',
   },
   {
     id: 3,
-    image: '/images/services/formatting.png',
+    image: '/images/services/book formating.jpg',
     title: 'Book Formatting Services',
     description: 'Make your book visually appealing and reader-friendly with our professional KDP book formatting services and get smooth self publishing.',
     slug: 'design',
   },
   {
     id: 4,
-    image: '/images/services/marketing.png',
+    image: '/images/services/marketing.jpg',
     title: 'Book Marketing Services',
     description: 'Maximize your book\'s reach with targeted book marketing strategies. We help position your book for visibility and long-term success in competitive markets.',
     slug: 'marketing',
@@ -54,13 +54,13 @@ export default function Services() {
                 className="p-8 border-2 border-[#D8E0EE] rounded-xl hover:border-[#C1121F] hover:shadow-usa transition group overflow-hidden"
               >
                 <div className="flex flex-col gap-4">
-                  <div className="w-full h-48 rounded-lg overflow-hidden bg-gray-50 flex items-center justify-center">
+                  <div className="w-full h-56 rounded-lg overflow-hidden bg-gray-50 flex items-center justify-center">
                     <Image
                       src={service.image}
                       alt={service.title}
-                      width={300}
-                      height={200}
-                      className="w-full h-full object-contain p-3"
+                      width={400}
+                      height={280}
+                      className="w-full h-full object-cover"
                     />
                   </div>
                   <div>
