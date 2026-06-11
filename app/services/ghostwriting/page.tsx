@@ -57,11 +57,11 @@ export default function ServiceDetailPage() {
             <div className="md:col-span-1">
               <div className="w-full rounded-lg overflow-hidden bg-gray-50 flex items-center justify-center h-80 shadow-lg">
                 <Image
-                  src="/images/services/editing.png"
+                  src="/images/services/ghost writing.jpg"
                   alt="Professional Ghostwriting Services"
                   width={300}
                   height={300}
-                  className="w-full h-full object-contain p-4"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>

@@ -61,11 +61,11 @@ export default function MarketingServicePage() {
             <div className="md:col-span-1">
               <div className="w-full rounded-lg overflow-hidden bg-gray-50 flex items-center justify-center h-80 shadow-lg border-2 border-[#0B3C6D]/10">
                 <Image
-                  src="/images/services/marketing.png"
+                  src="/images/services/marketing.jpg"
                   alt="Book Marketing Services"
                   width={300}
                   height={300}
-                  className="w-full h-full object-contain p-4"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
