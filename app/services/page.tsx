@@ -3,7 +3,7 @@ import Image from 'next/image'
 const mainServices = [
   {
     id: 1,
-    image: '/images/services/editing.png',
+    image: '/images/services/ghost%20writing.jpg',
     title: 'Ghostwriting Services',
     description: 'Turn your ideas into a manuscript with our professional book writing services. Hire a book writer online or collaborate with experienced storytellers to turn your dreams into reality.',
     details: [
@@ -16,7 +16,7 @@ const mainServices = [
   },
   {
     id: 2,
-    image: '/images/services/editing.png',
+    image: '/images/services/book%20cover%20design.jpg',
     title: 'eBook Editing & Publishing',
     description: 'Prepare your manuscript for success with expert editing. We ensure your book meets industry standards for both print and Amazon KDP publishing.',
     details: [
@@ -29,7 +29,7 @@ const mainServices = [
   },
   {
     id: 3,
-    image: '/images/services/formatting.png',
+    image: '/images/services/book%20formating.jpg',
     title: 'Book Formatting Services',
     description: 'Make your book visually appealing and reader-friendly with our professional KDP book formatting services and get smooth self publishing.',
     details: [
@@ -42,7 +42,7 @@ const mainServices = [
   },
   {
     id: 4,
-    image: '/images/services/marketing.png',
+    image: '/images/services/marketing.jpg',
     title: 'Book Marketing Services',
     description: 'Maximize your book\'s reach with targeted book marketing strategies. We help position your book for visibility and long-term success in competitive markets.',
     details: [
@@ -117,7 +117,8 @@ export default function ServicesPage() {
                         alt={service.title}
                         width={500}
                         height={400}
-                        className="w-full h-auto object-contain p-4"
+                        className="w-full h-auto object-cover"
+                        unoptimized
                       />
                     </div>
                   </div>
@@ -137,14 +138,14 @@ export default function ServicesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: 'Book Cover Design', emoji: '🎨' },
-              { title: 'Interior Layout', image: '/images/services/layout.png' },
-              { title: 'ISBN Setup', emoji: '#️⃣' },
-              { title: 'Distribution', emoji: '🌍' },
-              { title: 'Author Website', emoji: '💻' },
-              { title: 'Reviews & Blurbs', emoji: '⭐' },
-              { title: 'Indexing', emoji: '📑' },
-              { title: 'Audiobook Services', image: '/images/services/audiobook.png' },
+              { title: 'Book Cover Design', image: '/images/services/book%20cover%20design.jpg' },
+              { title: 'Interior Layout', image: '/images/services/interior%20layout.jpg' },
+              { title: 'ISBN Setup', image: '/images/services/isbn.jpg' },
+              { title: 'Distribution', image: '/images/services/distribution.jpg' },
+              { title: 'Author Website', image: '/images/services/author%20wesbite.jpg' },
+              { title: 'Reviews & Blurbs', image: '/images/services/reviews%20and%20blurbs.jpg' },
+              { title: 'Indexing', image: '/images/services/indexing.jpg' },
+              { title: 'Audiobook Services', image: '/images/services/audiobooks.jpg' },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-lg border-2 border-[#D8E0EE] hover:border-[#C1121F] transition text-center">
                 {service.image ? (
@@ -154,7 +155,8 @@ export default function ServicesPage() {
                       alt={service.title}
                       width={300}
                       height={200}
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-cover"
+                      unoptimized
                     />
                   </div>
                 ) : (
