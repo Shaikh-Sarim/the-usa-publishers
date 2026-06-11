@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 interface Platform {
   name: string
@@ -10,6 +10,29 @@ interface Platform {
 
 export default function PlatformsCarousel({ assets }: { assets: Platform[] }) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    // Check if mobile on mount and on resize
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  useEffect(() => {
+    if (!isMobile) return
+
+    // Auto-slide every 4 seconds on mobile only
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % assets.length)
+    }, 4000)
+
+    return () => clearInterval(interval)
+  }, [isMobile, assets.length])
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % assets.length)
