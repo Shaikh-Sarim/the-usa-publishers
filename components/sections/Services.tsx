@@ -4,21 +4,21 @@ import Link from 'next/link'
 const services = [
   {
     id: 1,
-    image: '/images/services/ghost writing.jpg',
+    image: '/images/services/ghost%20writing.jpg',
     title: 'Ghostwriting Services',
     description: 'Turn your ideas into a manuscript with our professional book writing services. Hire a book writer online or collaborate with experienced storytellers to turn your dreams into reality.',
     slug: 'ghostwriting',
   },
   {
     id: 2,
-    image: '/images/services/book cover design.jpg',
+    image: '/images/services/book%20cover%20design.jpg',
     title: 'eBook Editing & Publishing',
     description: 'Prepare your manuscript for success with expert editing. We ensure your book meets industry standards for both print and Amazon KDP publishing.',
     slug: 'editing',
   },
   {
     id: 3,
-    image: '/images/services/book formating.jpg',
+    image: '/images/services/book%20formating.jpg',
     title: 'Book Formatting Services',
     description: 'Make your book visually appealing and reader-friendly with our professional KDP book formatting services and get smooth self publishing.',
     slug: 'design',
