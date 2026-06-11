@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/prisma'
+import PlatformsCarousel from '@/components/PlatformsCarousel'
 
 export default async function TrustBar() {
   let assets = [
@@ -32,29 +33,7 @@ export default async function TrustBar() {
         <p className="text-center text-[#D4A017] text-sm mb-10 font-bold uppercase tracking-widest">
           We Publish to Major Platforms
         </p>
-        <div className="grid grid-cols-5 gap-4 md:gap-6">
-          {assets.map((platform) => (
-            <div
-              key={platform.name}
-              className="flex flex-col items-center justify-center p-3 md:p-6 bg-white rounded-xl border-2 border-[#D8E0EE] hover:border-[#C1121F] hover:shadow-lg hover:scale-105 transition duration-300"
-            >
-              <div className="text-2xl md:text-4xl mb-2 md:mb-3">
-                {platform.imageUrl.startsWith('http') ? (
-                  <img
-                    src={platform.imageUrl}
-                    alt={platform.name}
-                    className="w-10 md:w-14 h-10 md:h-14 object-contain"
-                  />
-                ) : (
-                  platform.imageUrl
-                )}
-              </div>
-              <p className="text-xs md:text-sm font-bold text-[#0B3C6D] text-center leading-tight">
-                {platform.name}
-              </p>
-            </div>
-          ))}
-        </div>
+        <PlatformsCarousel assets={assets} />
       </div>
     </section>
   )
