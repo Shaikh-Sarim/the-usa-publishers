@@ -57,7 +57,7 @@ export default function Hero() {
       {/* Content */}
       <div className="container-max relative z-10">
         {/* Logo at Top - Above Content */}
-        <div className="flex justify-start mb-8 pt-8">
+        <div className="flex justify-start mb-3">
           <Image 
             src="/images/logo.png" 
             alt="The USA Publishing" 
