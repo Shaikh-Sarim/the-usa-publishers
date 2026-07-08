@@ -54,13 +54,13 @@ export default function Services() {
                 className="p-8 border-2 border-[#D8E0EE] rounded-xl hover:border-[#C1121F] hover:shadow-usa transition group overflow-hidden"
               >
                 <div className="flex flex-col gap-4">
-                  <div className="w-full h-56 rounded-lg overflow-hidden bg-gray-50 flex items-center justify-center">
+                  <div className="w-full h-72 md:h-80 rounded-xl overflow-hidden bg-white border border-gray-100 flex items-center justify-center p-2">
                     <Image
                       src={service.image}
                       alt={service.title}
                       width={400}
-                      height={280}
-                      className="w-full h-full object-cover"
+                      height={320}
+                      className="w-full h-full object-contain"
                       unoptimized
                     />
                   </div>
