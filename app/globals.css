@@ -247,11 +247,11 @@
 }
 
 .btn-primary {
-  @apply px-6 py-3 bg-[#C1121F] text-white font-semibold rounded transition-all hover:bg-[#A00D1A] hover:shadow-lg;
+  @apply px-6 py-3 bg-[#C1121F] text-white font-semibold rounded-full transition-all hover:bg-[#A00D1A] hover:shadow-lg;
 }
 
 .btn-primary-outline {
-  @apply px-6 py-3 bg-transparent text-[#C1121F] border-2 border-[#C1121F] font-semibold rounded transition-colors hover:bg-red-50;
+  @apply px-6 py-3 bg-transparent text-[#C1121F] border-2 border-[#C1121F] font-semibold rounded-full transition-colors hover:bg-red-50;
 }
 
 .section-title {
