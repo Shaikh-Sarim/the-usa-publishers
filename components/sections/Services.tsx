@@ -61,7 +61,6 @@ export default function Services() {
                       width={400}
                       height={320}
                       className="w-full h-full object-contain"
-                      unoptimized
                     />
                   </div>
                   <div>

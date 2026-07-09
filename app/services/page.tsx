@@ -118,7 +118,6 @@ export default function ServicesPage() {
                         width={500}
                         height={400}
                         className="w-full h-auto object-cover"
-                        unoptimized
                       />
                     </div>
                   </div>
@@ -155,7 +154,6 @@ export default function ServicesPage() {
                     width={400}
                     height={320}
                     className="w-full h-full object-contain"
-                    unoptimized
                   />
                 </div>
                 <p className="font-bold text-[#0B3C6D] text-lg">{service.title}</p>
