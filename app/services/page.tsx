@@ -136,7 +136,7 @@ export default function ServicesPage() {
             Additional Services
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { title: 'Book Cover Design', image: '/images/services/book%20cover%20design.jpg' },
               { title: 'Interior Layout', image: '/images/services/interior%20layout.jpg' },
@@ -147,18 +147,18 @@ export default function ServicesPage() {
               { title: 'Indexing', image: '/images/services/indexing.jpg' },
               { title: 'Audiobook Services', image: '/images/services/audiobooks.jpg' },
             ].map((service, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-lg border-2 border-[#D8E0EE] hover:border-[#C1121F] transition text-center">
-                <div className="mb-3 overflow-hidden rounded h-48">
+              <div key={idx} className="bg-white p-6 rounded-xl border-2 border-[#D8E0EE] hover:border-[#C1121F] transition text-center shadow-md hover:shadow-lg">
+                <div className="mb-4 overflow-hidden rounded-lg h-80 bg-white flex items-center justify-center">
                   <Image
                     src={service.image}
                     alt={service.title}
-                    width={300}
-                    height={200}
-                    className="w-full h-full object-cover"
+                    width={400}
+                    height={320}
+                    className="w-full h-full object-contain"
                     unoptimized
                   />
                 </div>
-                <p className="font-bold text-[#0B3C6D]">{service.title}</p>
+                <p className="font-bold text-[#0B3C6D] text-lg">{service.title}</p>
               </div>
             ))}
           </div>
